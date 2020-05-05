@@ -28,22 +28,29 @@ Algorithm
         print the result
 
 """
-s = set()
-while True:
+def get_n_m():
     n_m = input()
-    if n_m == "0 0":
-        exit()
+    while n_m != "0 0":
+        n_m = input()
+        yield n_m
+
+
+for n_m in get_n_m():
     n_m = n_m.split(' ')
+    print(f"n m: {n_m}")
 
     n = int(n_m[0])
     m = int(n_m[1])
 
+    s = set()
     for i in range(n):
-        s.add(input())
+        j = input()
+        s.add(j)
 
-    print(f"Jack's CDS: {s}")
+    a = set()
     for i in range(m):
-        s.discard(input())
-    print(f"Jill's CDS: {s}")
+        j = input()
+        if j in s:
+            a.add(j)
 
-    print(len(s))
+    print(len(a))
